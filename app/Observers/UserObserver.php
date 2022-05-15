@@ -7,16 +7,21 @@ use App\Models\User;
 class UserObserver
 {
     /**
-     * Handle the User "created" event.
-     *
-     * @param  \App\Models\User  $user
+     * @param User $user
      * @return void
      */
     public function created(User $user)
     {
-       $user->api_token =bin2hex(openssl_random_pseudo_bytes(30));
+       //
     }
 
+    /**
+     * @param User $user
+     * @return void
+     */
+    public function creating(User $user){
+        $user->api_token =bin2hex(openssl_random_pseudo_bytes(30));
+    }
     /**
      * Handle the User "updated" event.
      *

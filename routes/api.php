@@ -30,6 +30,11 @@ Route::get('posts/{id}','App\Http\Controllers\Api\PostController@show');
 Route::get('comments/posts/{id}','App\Http\Controllers\Api\PostController@comments');
 
 // End post related
+Route::post('register','App\Http\Controllers\Api\UserController@store');
+Route::post('token','App\Http\Controllers\Api\UserController@getToken');
+
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
